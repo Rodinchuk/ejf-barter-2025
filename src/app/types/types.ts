@@ -7,7 +7,7 @@ export type CarouselSlideType = {
 export interface Package {
 	id: string;
 	name: string;
-	price: number;
+	price: string[];
 	features: string[];
 	info?: string;
   }

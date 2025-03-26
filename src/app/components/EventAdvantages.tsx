@@ -24,7 +24,7 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({ title, description, ico
         </div>
         <h3 className="card-title">{title}</h3>
         <div className={`card-toggle ${isExpanded ? "rotate-180" : ""}`}>
-          <Image src="/images/toddle.png" alt="toggle" width={24} height={24} />
+          <Image src="/images/toddle.png" alt="toggle" width={24} height={16} />
         </div>
       </div>
       {isExpanded && <p className="card-description">{description}</p>}
@@ -36,22 +36,10 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({ title, description, ico
 const EventAdvantages: React.FC = () => {
   const cardsData: ExpandableCardProps[] = [
     {
-      title: "Знайдете перспективних працівників",
-      description:
-        "Ви зможете особисто поспілкуватися зі студентами різних спеціальностей, оцінити їх потенціал та сформувати базу перспективних кандидатів на актуальні для Вас вакансії.",
-      icon: "/images/adv_perspective.png",
-    },
-    {
       title: "Зміцните свій бренд як роботодавця",
       description:
         "Ярмарок кар'єри – це чудова можливість представити свою компанію студентам, сформувати уявлення про Вашу корпоративну культуру, цінності та можливості для розвитку кар'єри.",
       icon: "/images/adv_brand.png",
-    },
-    {
-      title: "Дізнаєтесь очікування молоді щодо ринку праці",
-      description:
-        "Участь у різноманітних воркшопах та панельних дискусіях, допоможе Вам краще зрозуміти потреби сучасної молоді. Це сприятиме ефективній співпраці зі студентами у майбутньому.",
-      icon: "/images/adv_expectations.png",
     },
     {
       title: "Розширите мережу контактів",
@@ -64,12 +52,6 @@ const EventAdvantages: React.FC = () => {
       description:
         "Інтерактивні активності, такі як Share and Win, Treasure Hunt та інші, дозволять залучити аудиторію до взаємодії з Вашим брендом у соцмережах та збільшать впізнаваність серед молоді.",
       icon: "/images/adv_promo.png",
-    },
-    {
-      title: "Інвестуєте у майбутнє та амбітну молодь",
-      description:
-        "Це можливість допомогти реалізувати кар’єрний потенціал студентів, а також поділитись знаннями та досвідом Вашої команди на активностях нашого ярмарку.",
-      icon: "/images/adv_invest.png",
     },
   ];
 

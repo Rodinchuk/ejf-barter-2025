@@ -14,7 +14,7 @@ const packages: Package[] = [
   {
     id: "basic",
     name: "Basic",
-    price: 350,
+    price: ["350"],
     features: [
       "Участь у двох днях події з власним банером",
       "Ваш логотип у постпроєктному відео та на brand wall",
@@ -40,7 +40,7 @@ const packages: Package[] = [
   {
     id: "interactive",
     name: "Interactive",
-    price: 300,
+    price: ["300"],
     features: [
       "Панельна дискусія",
       "BEST Treasure Hunt",
@@ -59,7 +59,7 @@ const packages: Package[] = [
   {
     id: "performer",
     name: "Performer", 
-    price: 400,
+    price: ["400"],
     features: [
       "Проведення воркшопу",
       "Публікація статті про компанію на сайті",

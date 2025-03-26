@@ -80,9 +80,9 @@
   width: 100%;
 }
 
-.card-icon img {
-  width: 24px;
-  height: 24px;
+.card-icon {
+  width: 16px;
+  height: 10px;
 }
 
 .card-title {

@@ -13,10 +13,11 @@
 }
 
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Дві колонки */
-  gap: 4rem 20rem; /* Збільшений відступ між колонками */
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 5%;
+  width: 100%;
 }
 
 
@@ -40,9 +41,6 @@
   word-wrap: break-word;
 }
 
-.card-toggle img {
-  width: 24px;
-}
 
 .rotate-180 {
   transform: rotate(180deg);
@@ -50,9 +48,9 @@
 
 .overlay-image {
   position: absolute;
-  left: 50%;
+  left: 75%;
   top: 250px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -65%);
   width: 350px;
   height: 350px;
   z-index: 0;
@@ -84,7 +82,7 @@
   .card {
     min-height: auto;
     padding: 1rem;
-    max-width: 100%; /* На мобільних картки займають всю ширину */
+    max-width: 100%; 
   }
 
   .card-title {
@@ -148,6 +146,7 @@
 
 .card.card-collapsed {
   max-height: 100px;
+  width: 100%;
   border: 3px solid #257BFC;
 }
 

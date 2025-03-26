@@ -24,7 +24,6 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, isSelected, onSelect, is
       <div className="package-header">
         <div>
           <h3>{pkg.name}</h3>
-          <p className="price">${pkg.price}</p>
         </div>
         {pkg.info && (
           <Dialog>

@@ -4,7 +4,7 @@ import styles from './AboutBEST.module.css';
 
 export default function AboutBEST() {
   return (
-    <section  className={styles.section}> 
+    <section  className={styles.bestSection}> 
       <h2 className={styles.title}>Організатор події</h2>
     <div className={styles.container}>
       <div className={styles.contentWrapper}>

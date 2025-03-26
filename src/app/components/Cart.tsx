@@ -21,23 +21,6 @@ const Cart: React.FC<CartProps> = ({
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
 
-  const calculateTotal = () => {
-    const baseTotal = [...selectedPackages, ...additionalServices].reduce(
-      (sum, item) => sum + item.price,
-      0
-    );
-
-    const additionalPackagesCount = selectedPackages.length - 1;
-    const additionalServicesCount = additionalServices.length;
-
-    if (additionalPackagesCount >= 2) {
-      return baseTotal * 0.9;
-    } else if (additionalServicesCount >= 3) {
-      return baseTotal * 0.9;
-    }
-
-    return baseTotal;
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,7 +31,6 @@ const Cart: React.FC<CartProps> = ({
         email: email,
         packages: selectedPackages.map((p) => p.name).join(", "),
         additional_services: additionalServices.map((s) => s.name).join(", "),
-        total: calculateTotal(),
       };
 
       await emailjs.send(
@@ -65,92 +47,10 @@ const Cart: React.FC<CartProps> = ({
     }
   };
 
-  const total = calculateTotal();
-  const originalTotal = [...selectedPackages, ...additionalServices].reduce(
-    (sum, item) => sum + item.price,
-    0
-  );
-  const hasDiscount = total !== originalTotal;
-
   return (
     <div>
       <h2 className="cart-title">Кошик</h2>
-      <div className="cart-group">
-        <div className="form-group">
-          <p className="cart-subtitle">Пропозиції</p>
-          {/* <div className="cartitems"> */}
-          {selectedPackages.map((pkg) => (
-            <div key={pkg.id} className="cart-item">
-              <span>{pkg.name}</span>
-              <div className="cart-item-actions">
-                <span>${pkg.price}</span>
-                {pkg.name !== "Basic" && (
-              <button
-              data-variant="default"
-              onClick={() => onRemove(pkg.id)}
-              style={{
-                background: "transparent",
-                border: "none",
-                padding: 0,
-                cursor: "pointer",
-              }}
-            >
-              <img src="./images/cancel.svg" alt="Cancel" width="24" height="24" />
-            </button>
-                )}
-              </div>
-            </div>
-          ))}
-          <p className="cart-subtitle">Додаткові опції</p>
-          {additionalServices.map((service) => (
-            <div key={service.id} className="cart-item">
-              <span>{service.name}</span>
-              <div className="cart-item-actions">
-                <span>${service.price}</span>
-                <button
-  data-variant="default"
-  onClick={() => onRemove(service.id)}
-  style={{
-    background: "transparent",
-    border: "none",
-    padding: 0,
-    cursor: "pointer",
-  }}
->
-  <img src="./images/cancel.svg" alt="Cancel" width="24" height="24" />
-</button>
-
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="cartsecondpart">
-          <div className="total-section">
-            <div className="total-row">
-              <div className="total-amount">
-              <span className="final-price">=</span>
-                {hasDiscount && (
-                  <span className="strikethrough">${originalTotal}</span>
-                )}
-                <span className="final-price">${total}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="discount-section">
-            <h3 className="discout-title">Знижки:</h3>
-            <p className="discount">
-              Партнерам попередніх подій знижка — <strong>5%</strong>
-            </p>
-            <p className="discount">
-              Basic + 2 додаткових пакети — <strong>10%</strong>
-            </p>
-            <p className="discount">
-              Basic + 3 додаткові опції — <strong>10%</strong>
-            </p>
-            <p className="discount">*Знижки не поєднуються</p>
-            <p className="discount">*Оплата здійснюватиметься за курсом НБУ</p>
-          </div>
+     
 
           <form className="form" onSubmit={handleSubmit}>
             <Input
@@ -203,8 +103,6 @@ const Cart: React.FC<CartProps> = ({
             </Button>
           </form>
         </div>
-      </div>
-    </div>
   );
 };
 

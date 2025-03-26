@@ -22,8 +22,10 @@ h2 {
   margin-top: 20px;
   padding: 20px;
   border-radius: 10px;
-  width: 100%;
+  width: 90%;
   margin-bottom: 15px;
+  margin-left: 5%;
+
 }
 .cart-group {
   display: flex;
@@ -112,9 +114,9 @@ h2 {
   font-weight: bold;
   font-family: 'Exo 2', sans-serif;
 }
-.form {
+/* .form {
   max-width: 300px;
-}
+} */
 .form-input::placeholder {
   color: #0848a3;
 }
