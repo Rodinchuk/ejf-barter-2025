@@ -55,11 +55,10 @@ const packages: Package[] = [
     }
 ];
 
-const additionalServices: ServiceType[] = [];
 
 const Packagea = () => {
-  const [selectedPackages, setSelectedPackages] = useState<Package[]>([packages[0]]);
-  const [selectedServices, setSelectedServices] = useState<ServiceType[]>([]);
+  const [selectedPackages] = useState<Package[]>([packages[0]]);
+  const [selectedServices] = useState<ServiceType[]>([]);
   const [modalContent, setModalContent] = useState<string | null>(null);
 
   const handlePackageSelect = (id: string) => {
