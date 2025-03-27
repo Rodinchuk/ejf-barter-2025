@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import PackageCard from "./PackageCart"; 
-import AdditionalService from "./AdditionalService";
 import Cart from "./Cart"; 
 import { Package, AdditionalService as ServiceType } from "../types/types";
 import "@/app/components/PackagesSection.css";
@@ -78,8 +77,6 @@ const packages: Package[] = [
   }
 ];
 
-const additionalServices: ServiceType[] = [];
-
 const Packagec = () => {
   const [selectedPackages, setSelectedPackages] = useState<Package[]>([packages[0]]);
   const [selectedServices, setSelectedServices] = useState<ServiceType[]>([]);
@@ -88,23 +85,6 @@ const Packagec = () => {
   const handlePackageSelect = (id: string) => {
     const pkg = packages.find((p) => p.id === id);
     if (!pkg) return;
-  };
-
-  const handleServiceSelect = (id: string) => {
-    const service = additionalServices.find((s) => s.id === id);
-    if (!service) return;
-
-    setSelectedServices((prev) => {
-      if (prev.some((s) => s.id === id)) {
-        return prev.filter((s) => s.id !== id);
-      }
-      return [...prev, service];
-    });
-  };
-
-  const handleRemove = (id: string) => {
-    setSelectedPackages((prev) => prev.filter((p) => p.id !== id));
-    setSelectedServices((prev) => prev.filter((s) => s.id !== id));
   };
 
   const handleInfoClick = (info: string | undefined) => {
@@ -152,7 +132,7 @@ const Packagec = () => {
         </div>
 
         <div className="cart-container">
-          <Cart selectedPackages={selectedPackages} additionalServices={selectedServices} onRemove={handleRemove} />
+          <Cart selectedPackages={selectedPackages} additionalServices={selectedServices} />
         </div>
       </div>
 

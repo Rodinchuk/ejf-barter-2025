@@ -10,13 +10,11 @@ emailjs.init("nH1slg9lPzjgOixSC");
 interface CartProps {
   selectedPackages: Package[];
   additionalServices: AdditionalService[];
-  onRemove: (id: string) => void;
 }
 
 const Cart: React.FC<CartProps> = ({
   selectedPackages,
   additionalServices,
-  onRemove,
 }) => {
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");

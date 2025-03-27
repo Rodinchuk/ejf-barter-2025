@@ -30,6 +30,6 @@
     "**/*.tsx", 
     ".next/types/**/*.ts", 
     "src/store/cartSlice.jsx"
-  ],
+, "src/app/components/404.jsx"  ],
   "exclude": ["node_modules"]
 }

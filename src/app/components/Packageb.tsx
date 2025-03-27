@@ -61,11 +61,10 @@ const packages: Package[] = [
   }
 ];
 
-const additionalServices: ServiceType[] = [];
 
 const Packageb = () => {
-  const [selectedPackages, setSelectedPackages] = useState<Package[]>([packages[0]]);
-  const [selectedServices, setSelectedServices] = useState<ServiceType[]>([]);
+  const [selectedPackages] = useState<Package[]>([packages[0]]);
+  const [selectedServices] = useState<ServiceType[]>([]);
   const [modalContent, setModalContent] = useState<string | null>(null);
 
   const handlePackageSelect = (id: string) => {
@@ -73,22 +72,6 @@ const Packageb = () => {
     if (!pkg) return;
   };
 
-  const handleServiceSelect = (id: string) => {
-    const service = additionalServices.find((s) => s.id === id);
-    if (!service) return;
-
-    setSelectedServices((prev) => {
-      if (prev.some((s) => s.id === id)) {
-        return prev.filter((s) => s.id !== id);
-      }
-      return [...prev, service];
-    });
-  };
-
-  const handleRemove = (id: string) => {
-    setSelectedPackages((prev) => prev.filter((p) => p.id !== id));
-    setSelectedServices((prev) => prev.filter((s) => s.id !== id));
-  };
 
   const handleInfoClick = (info: string | undefined) => {
     if (info) {
@@ -135,7 +118,7 @@ const Packageb = () => {
         </div>
 
         <div className="cart-container">
-          <Cart selectedPackages={selectedPackages} additionalServices={selectedServices} onRemove={handleRemove} />
+          <Cart selectedPackages={selectedPackages} additionalServices={selectedServices} />
         </div>
       </div>
 
